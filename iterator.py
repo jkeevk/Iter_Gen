@@ -14,22 +14,23 @@ class FlatIterator:
         self.index += 1
         return items
 
-def test():
-    nested_list = [
-            ['a', 'b', 'c'],
-            ['d', 'e', 'f', 'h', False],
-            [1, 2, None],
-            ]
+def test_1():
+
+    list_of_lists_1 = [
+        ['a', 'b', 'c'],
+        ['d', 'e', 'f', 'h', False],
+        [1, 2, None]
+    ]
 
     for flat_iterator_item, check_item in zip(
-            FlatIterator(nested_list),
+            FlatIterator(list_of_lists_1),
             ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
     ):
+
         assert flat_iterator_item == check_item
 
-    assert list(FlatIterator(nested_list)) == ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
+    assert list(FlatIterator(list_of_lists_1)) == ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
 
-    print(list(FlatIterator(nested_list)))
 
 if __name__ == '__main__':
-    test()
+    test_1()
